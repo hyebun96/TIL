@@ -1,14 +1,12 @@
 # JWT(JSON Web Token)
-
-JWT는 Json으로 된 Token을 사용하는 방식의 인증입니다. 즉, OAuth와 같이 Token기반의 인증방식 입니다.
-
-JWT는 토큰 자체가 의미를 갖는 Claim기반의 토큰 방식입니다. Claim(권한)은 사용자에 대한 프로피터나 속성을 의미합니다. 즉, JWT는 OAuth처럼 아무 의미 없는 문자열로 된 토큰이 아니다.
++ JWT는 Json으로 된 Token을 사용하는 방식의 인증입니다. 즉, OAuth와 같이 Token기반의 인증방식
++ JWT는 토큰 자체가 의미를 갖는 Claim기반의 토큰 방식입니다. Claim(권한)은 사용자에 대한 프로피터나 속성을 의미
++ 즉, JWT는 OAuth처럼 아무 의미 없는 문자열로 된 토큰이 ❌
 <br/>
 
 ### JWT 의 공식문서
-[https://jwt.io/introduction/](https://jwt.io/introduction/)
-
-[https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+[jwt](https://jwt.io/introduction/) <br/>
+[tools](https://tools.ietf.org/html/rfc7519)
 <br/>
 
 ### Token을 생성하고 요청하는 프로세스
@@ -49,47 +47,42 @@ HMAC(Hash-based Message Authentication)란, 데이터를 암호화하고 해싱�
 <br/>
 
 ### JWT 구조 및 생성
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/15fc9488-f3d6-417e-911d-feaa36e7fde7/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/15fc9488-f3d6-417e-911d-feaa36e7fde7/Untitled.png)
-
 - 많은 프로그래밍 언어에서 JWT를 지원하는데, 각 언어의 라이브러리에서 자동으로 인코딩 및 해싱작업을 함
 - 헤더, 내용, 서명에 적절한 속성과 값들을 명시할 때, 이야기입니다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4e386b8f-0eff-42b6-b6c5-1d8c713c51fa/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4e386b8f-0eff-42b6-b6c5-1d8c713c51fa/Untitled.png)
+    1. Header(헤더)
+        - 헤더는 typ와 alg속성을 명시합니다
+        - typ : 토큰의 타입을 명시합니다.
+        - alg : 해싱 알고리즘을 명시합니다. 이 알고리즘은 서버에서 토큰을 검증할때, signature에서 사용됩니다.
 
-1. Header(헤더)
-- 헤더는 typ와 alg속성을 명시합니다
-- typ : 토큰의 타입을 명시합니다.
-- alg : 해싱 알고리즘을 명시합니다. 이 알고리즘은 서버에서 토큰을 검증할때, signature에서 사용됩니다.
+    2. Payload(내용)
 
-2. Payload(내용)
+        - 내용에는 토큰에 대한 정보를 작성합니다.
+        - 정보는 속성, 값으로 표현되며 이를 Claim이라 합니다.
+        - Claim은 3가지로 작성 가능
+        
+            (1) registerd claim
 
-- 내용에는 토큰에 대한 정보를 작성합니다.
-- 정보는 속성, 값으로 표현되며 이를 Claim이라 합니다.
-- Claim은 3가지로 작성 가능
+                - 미리 정의된 claim으로써, 토큰에 대한 정보를 작성합니다
+                - iss : 토큰 발급자
+                - exp : 토큰의 만료시간
+                - sub : 토큰 제목
+                - aud : 토큰 대상자
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/766b91a6-4d95-4dd9-bdc6-fff7eefabeed/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/766b91a6-4d95-4dd9-bdc6-fff7eefabeed/Untitled.png)
+            (2) public claim
 
-    (1) registerd claim
+                - 공개적인 claim을 명시하는데, 충돌방지를 위해 URI형식으로 작성합니다
 
-    - 미리 정의된 claim으로써, 토큰에 대한 정보를 작성합니다
-    - iss : 토큰 발급자
-    - exp : 토큰의 만료시간
-    - sub : 토큰 제목
-    - aud : 토큰 대상자
+            (3) private claim
 
-    (2) public claim
+                - 서버와 클라이언트가 협의한 claim을 명시합니다.
 
-    - 공개적인 claim을 명시하는데, 충돌방지를 위해 URI형식으로 작성합니다
+    3. Signature(서명)
 
-    (3) private claim
+    - 서명에는 헤더의 인코딩 값과 내용의 인코딩값을 .으로 연결하여 합친 후 비밀키로 해싱
+    - 일종의 암호화하는 작업
+    <br/>
 
-    - 서버와 클라이언트가 협의한 claim을 명시합니다.
-
-3. Signature(서명)
-
-- 서명에는 헤더의 인코딩 값과 내용의 인코딩값을 .으로 연결하여 합친 후 비밀키로 해싱
-- 일종의 암호화하는 작업
-<br/>
 
 ### 결론
 - header + payload + signature의 각값들을 "."으로 합치면 하나의 JWT가 생성
@@ -102,4 +95,4 @@ HMAC(Hash-based Message Authentication)란, 데이터를 암호화하고 해싱�
 - 브라우저의 쿠키
 - local storage
 - session storage
-- **HTTP Only옵션 쿠키 <<Best>>**
+- ** HTTP Only옵션 쿠키 <<Best>> **
