@@ -6,8 +6,6 @@
 <br/>
 
 ### Maven 프로젝트 구조
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03a25fba-a10a-42a4-8b3b-cad5d3fae0a8/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03a25fba-a10a-42a4-8b3b-cad5d3fae0a8/Untitled.png)
-
 - Group ID : [com.company](http://com.company)
 - application-core : 최상위 경로
 - pom.xml : 프로젝트 정보가 표시되며, 이름, url, 이슈트래킹 시스템에 대한 명시, CI 서버등 시스템이 대한 명세 가능
@@ -47,7 +45,6 @@
 		</dependency>
  </dependencies>
 ~~~
-
 - 프로젝트 연관정보
     - groupId : 프로젝트 그룹, ID, 도메인이나 특별한 정보로 식별
     - artifactId : 프로젝트 Artifact ID 설정, 프로젝트에 의해 생성되는 Artifact 명. version . packaging 의 형태로 Artifact 파일이 생성
@@ -60,13 +57,10 @@
     - artifactId : 의존하는 프로젝트의 artifact ID
     - version : 의존하는 프로젝트의 버전
     - scope : 의존하는 범위(compile, runtime, provided, test로 scope가 나뉨)
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eae99f9e-dac6-4ec8-86c3-32196cb96e08/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eae99f9e-dac6-4ec8-86c3-32196cb96e08/Untitled.png)
 <br/>
 
 ### 의존범위
 의존 범위는 쉽게 생각하면 서버 측 구동 자원이 로컬에만 필요할 경우 그것을 구분하기 위한 범위 설정
-
 - compile : 기본 scope. 컴파일 할 때 필요
 - runtime : 컴파일시에는 필요하지 않지만 런타임에 필요. 배포시 포함
 - provided : 컴파일 할때 필요하지만, 컴테이너 등에서 기본으로 제공되는 모듈임을 의미. 배포시 제외
@@ -78,9 +72,9 @@
 - 로컬 영역에 Nexus등을 이용하여 리파지토리를 구축
 
 **http:/mvnrepository.com 에서 Maven의 중앙 리파지토리에 등록된 POM 정보를 검색할 수 있습니다. 이 사이트를 통해 라이브러리의 dependency을 조회하여 적용할 수 있다.**
+<br/>
 
 ### 메이븐 라이프사이클
-
 ~~~
 ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b8b6658-0f52-4026-a84e-0f29feee937e/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b8b6658-0f52-4026-a84e-0f29feee937e/Untitled.png)
 ~~~
@@ -89,5 +83,4 @@
 - Meven에서는 clean, build, site의 세가지 Lifecycle을 기본적으로 제공하고 있습니다.
 - 컴파일(compile), 테스트(test), 패키지(package), 배포(depooy)등의 과정은 빌드 Lifecycle 포함
 - 각 단계에 따른 Goals이 존재
-
     ⇒ Maven 기본으로 제공하는 phase를 실행하면 해당 Phase와 연결된 플러그인의 Goal이 실행
