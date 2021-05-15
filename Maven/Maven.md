@@ -11,7 +11,7 @@
 - pom.xml : 프로젝트 정보가 표시되며, 이름, url, 이슈트래킹 시스템에 대한 명시, CI 서버등 시스템이 대한 명세 가능
 <br/>
 
-**경로의 역할**
+### **경로의 역할**
 **pom.xml** : 프로젝트와 관련된 정보들을 기술
 **src/main/java** : 자바 소스 파일 위치. 하위에 org.gliderwiki와 같은 패키지 배치
 **src/main/resources** : 프로퍼티나 XML등 리소스 파일을 위치
@@ -82,5 +82,5 @@
 - 메이븐은 미리 정의하고 있는 빌드 순서를 통해 (라이프 사이클) 빌드결과 삭제, 컴파일 및 자원 복사, 테스트, 압축(패키지) 배포 등의 단계를 밟게 됩니다.
 - Meven에서는 clean, build, site의 세가지 Lifecycle을 기본적으로 제공하고 있습니다.
 - 컴파일(compile), 테스트(test), 패키지(package), 배포(depooy)등의 과정은 빌드 Lifecycle 포함
-- 각 단계에 따른 Goals이 존재
+- 각 단계에 따른 Goals이 존재<br>
     ⇒ Maven 기본으로 제공하는 phase를 실행하면 해당 Phase와 연결된 플러그인의 Goal이 실행
