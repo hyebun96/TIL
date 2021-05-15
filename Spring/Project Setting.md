@@ -76,15 +76,19 @@ test {
     + spring-webmvc: 스프링 웹 MVC
 + spring-boot-starter-thymeleaf: 타임리프 템플릿 엔진(View)
 + pring-boot-starter(공통): 스프링 부트 + 스프링 코어 + 로깅
-    1. spring-boot-starter-logging_Log 관련 라이브러리
-        + Log를 사용해야 하는 이유는 System.out.println은 내역이 남지않음. log는 내역이 남고 심각한 오류끼리 모아서 볼 수 있음.
-        (1) logback
-        (2) slf4
-    2. spring-boot-starter-test_Test 관련 라이브러리
-        (1) junit: 테스트 프레임워크
-        (2) mockito: 목 라이브러리
-        (3) assertj: 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리
-        (4) spring-test: 스프링 통합 테스트 지원
+    + spring-boot-starter-logging_Log 관련 라이브러리 <br/>
+        (1) logback <br/>
+        (2) slf4 <br/>
+    + spring-boot-starter-test_Test 관련 라이브러리 <br/>
+        (1) junit: 테스트 프레임워크 <br/>
+        (2) mockito: 목 라이브러리 <br/>
+        (3) assertj: 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리 <br/>
+        (4) spring-test: 스프링 통합 테스트 지원 <br/>
+<br/>
+
+#### Log를 사용하는 이유
++ System.out.println은 내역이 남지않음. 
++ log는 내역이 남고 심각한 오류끼리 모아서 볼 수 있음.
 <br/>
 
 #### 동작확인
