@@ -1,11 +1,12 @@
 # 스프링 웹 개발 기초
 
-### 정적 컨텐츠
+## 정적 컨텐츠
 + 파일을 그대로 웹 브라우저(고객)에게 전달해 주는 것
 
 #### 정적 컨텐츠 공식문서
 + [Spring 공식 문서](https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/spring-bootfeatures.html#boot-features-spring-mvc-static-content)
 + Spring Boot는 클래스 경로에서 /static(또는 /public또는 /resources또는 /META-INF/resources)라는 디렉토리를 찾아감
+<br/>
 
 #### 정적 컨텐츠 흐름
 ![정적 컨텐츠](정적컨텐츠.PNG)
@@ -15,9 +16,9 @@
 + resorces안에 static 밑에서 찾아서 있으면 웹 브라우저에게 반환해줌
 <br/>
 
-
-### MVC와 템플릿 엔진
+## MVC와 템플릿 엔진
 + 서버에서 변형을 통해 동적인 페이지를 전달하는 것
+<br/>
 
 #### MVC
 + model, view, controller
@@ -26,6 +27,7 @@
 + Controller는 내부적인 것을 처리하는 역할
 + View 화면에 보여주는 역할
 + Model은 화면에서 필요한 부분을 담아 넘겨주는 역할
+<br/>
 
 #### controller 소스
 ~~~
@@ -37,6 +39,7 @@
 	}
 ~~~
 + 아무런 설정을 안해주면 required 가 true임으로 설정을 해주어야 주소에 값을 넘기지 않아도 창이 뜸
+<br/>
 
 #### MVC 흐름
 ![MVC](MVC.PNG)
@@ -48,8 +51,9 @@
 <br/>
 
 
-### API
+## API
 + JSON 데이터 포맷으로 클라이언트에게 데이터를 전달하는 것
+<br/>
 
 #### controller 소스
 ~~~
@@ -64,6 +68,7 @@
 + MVC와의 차이점은 View가 존재하지 않기 떄문에 값이 그대로 넘어감
 + 아래 소스보면 HTML 소스없이 값만 있는 것을 볼 수 있음<br/>
 ![API1](API1.PNG)
+<br/>
 
 #### json 형식
 ~~~
@@ -91,6 +96,7 @@
 + 화면에 {"name":"spring"} 형식으로 뜨는 것을 볼 수 있음
 + json은 "키-값 쌍"으로 이루어진 데이터 오브젝트를 전달하기 위해 인간이 읽을 수 있는 텍스트를 사용하는 개방형 표준 포맷
 + 최근 태그형식 XML형식은 무겁고 번거로워서 json형식으로 많이 변경
+<br/>
 
 #### @Response 동작방식
 ![API2](API2.PNG)
