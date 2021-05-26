@@ -58,8 +58,16 @@
 	public String ghelloString(@RequestParam("name") String name) {
 		return "hello " + name;
 	}
+~~~
++ http = header + Body
++ @ResponseBody 는 http안에 Body부에 직접 내가 넣어주겠다는 의미
++ MVC와의 차이점은 View가 존재하지 않기 떄문에 값이 그대로 넘어감
++ 아래 소스보면 HTML 소스없이 값만 있는 것을 볼 수 있음<br/>
+![API1](API1.PNG)
 
-	@GetMapping("hello-api")
+#### json 형식
+~~~
+@GetMapping("hello-api")
 	@ResponseBody
 	public Hello helloApi(@RequestParam("name") String name) {
 		Hello hello = new Hello();
@@ -80,8 +88,9 @@
 
 	}
 ~~~
-+ http = header + Body
-+ @ResponseBody 는 http안에 Body부에 직접 내가 넣어주겠다는 의미
-+ MVC와의 차이점은 View가 존재하지 않기 떄문에 값이 그대로 넘어감
-![API1](API1.PNG)
-+ 소스보면 HTML 소스없이 값만 있는 것을 볼 수 있음
++ 화면에 {"name":"spring"} 형식으로 뜨는 것을 볼 수 있음
++ json은 "키-값 쌍"으로 이루어진 데이터 오브젝트를 전달하기 위해 인간이 읽을 수 있는 텍스트를 사용하는 개방형 표준 포맷
++ 최근 태그형식 XML형식은 무겁고 번거로워서 json형식으로 많이 변경
+
+#### @Response 동작방식
+![API2](API2.PNG)
