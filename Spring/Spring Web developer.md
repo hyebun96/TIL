@@ -50,3 +50,38 @@
 
 ### API
 + JSON 데이터 포맷으로 클라이언트에게 데이터를 전달하는 것
+
+#### controller 소스
+~~~
+	@GetMapping("hello-string")
+	@ResponseBody
+	public String ghelloString(@RequestParam("name") String name) {
+		return "hello " + name;
+	}
+
+	@GetMapping("hello-api")
+	@ResponseBody
+	public Hello helloApi(@RequestParam("name") String name) {
+		Hello hello = new Hello();
+		hello.setName(name);
+		return hello;
+	}
+	
+	static class Hello{
+		private String name;
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+	}
+~~~
++ http = header + Body
++ @ResponseBody 는 http안에 Body부에 직접 내가 넣어주겠다는 의미
++ MVC와의 차이점은 View가 존재하지 않기 떄문에 값이 그대로 넘어감
+![API1](API1.PNG)
++ 소스보면 HTML 소스없이 값만 있는 것을 볼 수 있음
