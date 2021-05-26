@@ -98,5 +98,16 @@
 + 최근 태그형식 XML형식은 무겁고 번거로워서 json형식으로 많이 변경
 <br/>
 
-#### @Response 동작방식
+#### @ResponseBody 동작방식
 ![API2](API2.PNG)
++ 웹 브라우저에서 'localhost:8080/hello-string'을 요청
++ Spring은 controller에게 전달
++ 'hello-string'을 찾아서 감. 근데 @ResponseBody가 있으면 Http 의 body에 문자내용을 직접 반환
++ VeiwResolver 대신에 HttpMessageConverter가 동작
++ HttpMessageConverter가 단순 문자면 StringConverter보내 응답
++ HttpMessageConverter가 객체면 JsonConverter에게 보내 응답
+<br/>
+
+#### 객체를 Json으로 변경해주는 두가지 라이브러리
++ Jackson  => Spring은 기본으로 탑재, 범용성이 있음
++ Gson (Google)
